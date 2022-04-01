@@ -16,6 +16,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: apt install
+      run: sudo apt update && sudo apt install gcc-mipsel-linux-gnu
+    - name: Toolchain
+      run: rustup target add mipsel-unknown-linux-gnu
     - name: Build
-      run: rustup target add mipsel-unknown-linux-gnu && cargo build --target mipsel-unknown-linux-gnu --release
+      run: CARGO_TARGET_MIPSEL_UNKNOWN_LINUX_GNU_LINKER="mipsel-linux-gnu-gcc" cargo build --target mipsel-unknown-linux-gnu --package tunet
       
