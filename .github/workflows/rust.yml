@@ -22,7 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: musl Toolchain
-      run: sudo apt update && sudo apt install -y musl && curl -O https://musl.cc/mipsel-linux-musl-cross.tgz && tar xzf mipsel-linux-musl-cross.tgz && sudo cp mipsel-linux-musl-cross/bin/* /usr/bin/    
+      run: sudo apt update && sudo apt install -y musl && curl -O https://musl.cc/mipsel-linux-musl-cross.tgz && tar xzf mipsel-linux-musl-cross.tgz && sudo cp mipsel-linux-musl-cross/bin/* /usr/bin/ && sudo cp mipsel-linux-musl-cross/libexec/gcc/mipsel-linux-musl/11.2.1/cc1 /usr/bin/  
     - name: Rust Toolchain
       run: rustup target add mipsel-unknown-linux-musl
     
@@ -34,7 +34,7 @@ jobs:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
     
     - name: Build
-      run: CC1=mipsel-linux-musl-gcc CARGO_TARGET_MIPSEL_UNKNOWN_LINUX_MUSL_LINKER=mipsel-linux-musl-gcc cargo build --target mipsel-unknown-linux-musl --package tunet --release
+      run: CC_mipsel_unknown_linux_musl=mipsel-linux-musl-gcc CARGO_TARGET_MIPSEL_UNKNOWN_LINUX_MUSL_LINKER=mipsel-linux-musl-gcc cargo build --target mipsel-unknown-linux-musl --package tunet --release
     
     - name: Upload Built tunet
       uses: actions/upload-artifact@v3
