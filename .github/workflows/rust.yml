@@ -19,5 +19,5 @@ jobs:
     - name: install mips toolchains
       run: sudo apt update && sudo apt install -y gcc-mips-linux-gnu
     - name: Build
-      run: cargo build --target mips-unknown-linux-gnu --release
+      run: rustup target add mips-unknown-linux-gnu && cargo build --target mips-unknown-linux-gnu --release
       
