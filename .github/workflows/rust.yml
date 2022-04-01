@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: apt install
-      run: sudo apt update && sudo apt install gcc-mips-linux-musl
+      run: sudo apt update && sudo apt install musl
     - name: Toolchain
       run: rustup target add mips-unknown-linux-musl
     - name: Build
