@@ -21,7 +21,7 @@ jobs:
     - name: Toolchain
       run: rustup target add mips-unknown-linux-gnu
     - name: Build
-      run: CC_mips_unknown_linux_gnu=mips-linux-gnu-gcc CARGO_TARGET_MIPS_UNKNOWN_LINUX_GNU_LINKER=mips-linux-gnu-gcc cargo build --target mipsel-unknown-linux-gnu --release
+      run: CC_mips_unknown_linux_gnu=mips-linux-gnu-gcc CARGO_TARGET_MIPS_UNKNOWN_LINUX_GNU_LINKER=mips-linux-gnu-gcc cargo build --target mips-unknown-linux-gnu --release
     - name: Upload Built tunet
       uses: actions/upload-artifact@v3
       with:
