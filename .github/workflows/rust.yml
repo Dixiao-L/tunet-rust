@@ -35,7 +35,7 @@ jobs:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
     
     - name: Build
-      run: CC_mipsel_unknown_linux_musl=mipsel-linux-musl-cc CARGO_TARGET_MIPSEL_UNKNOWN_LINUX_MUSL_LINKER=mipsel-linux-musl-gcc cargo build --target mipsel-unknown-linux-musl --package tunet --release
+      run: CC_mipsel_unknown_linux_musl=mipsel-linux-musl-gcc CARGO_TARGET_MIPSEL_UNKNOWN_LINUX_MUSL_LINKER=mipsel-linux-musl-gcc cargo build --target mipsel-unknown-linux-musl --package tunet --release
     
     - name: Upload Built tunet
       uses: actions/upload-artifact@v3
