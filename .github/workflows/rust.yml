@@ -17,11 +17,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: apt install
-      run: sudo apt update && sudo apt install gcc-mips-linux-gnu
+      run: sudo apt update && sudo apt install gcc-mips-linux-musl
     - name: Toolchain
-      run: rustup target add mips-unknown-linux-gnu
+      run: rustup target add mips-unknown-linux-musl
     - name: Build
-      run: CC_mipsel_openwrt_linux_gnu=mipsel-linux-gnu-gcc CARGO_TARGET_MIPS_OPENWRT_LINUX_GNU_LINKER=mipsel-linux-gnu-gcc cargo build --target mipsel-openwrt-linux-gnu --release
+      run: CC_mipsel_unknown_linux_musl=mipsel-linux-musl-gcc CARGO_TARGET_MIPS_UNKNOWN_LINUX_MUSL_LINKER=mipsel-linux-musl-gcc cargo build --target mipsel-unknown-linux-musl --release
     - name: Upload Built tunet
       uses: actions/upload-artifact@v3
       with:
