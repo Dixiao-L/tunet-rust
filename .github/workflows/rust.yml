@@ -4,7 +4,12 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'true'
 
 env:
   CARGO_TERM_COLOR: always
