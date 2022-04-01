@@ -19,9 +19,9 @@ jobs:
     - name: apt install
       run: sudo apt update && sudo apt install musl
     - name: Toolchain
-      run: rustup target add mips-unknown-linux-musl
+      run: rustup target add mipsel-unknown-linux-musl
     - name: Build
-      run: CC_mipsel_unknown_linux_musl=mipsel-linux-musl-gcc CARGO_TARGET_MIPS_UNKNOWN_LINUX_MUSL_LINKER=mipsel-linux-musl-gcc cargo build --target mipsel-unknown-linux-musl --release
+      run: CC_mipsel_unknown_linux_musl=mipsel-linux-musl-gcc CARGO_TARGET_MIPSEL_UNKNOWN_LINUX_MUSL_LINKER=mipsel-linux-musl-gcc cargo build --target mipsel-unknown-linux-musl --release
     - name: Upload Built tunet
       uses: actions/upload-artifact@v3
       with:
