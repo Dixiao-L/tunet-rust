@@ -16,8 +16,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: install mips toolchains
-      run: sudo apt update && sudo apt install -y gcc-mips-linux-gnu
     - name: Build
-      run: rustup target add mips-unknown-linux-gnu && cargo build --target mips-unknown-linux-gnu --release
+      run: rustup target add mipsel-unknown-linux-gnu && cargo build --target mipsel-unknown-linux-gnu --release
       
