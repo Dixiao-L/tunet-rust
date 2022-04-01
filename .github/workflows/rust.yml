@@ -17,11 +17,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: musl Toolchain
-      run: curl -O https://musl.cc/mipsel-linux-musl-cross.tgz && tar xzf mipsel-linux-musl-cross.tgz
+      run: curl -O https://musl.cc/mipsel-linux-musl-cross.tgz && tar xzf mipsel-linux-musl-cross.tgz --directory=/
     - name: Rust Toolchain
       run: rustup target add mipsel-unknown-linux-musl
     - name: Build
-      run: CC_mipsel_unknown_linux_musl=/home/runner/work/tunet-rust/tunet-rust/mipsel-linux-musl-cross/bin/mipsel-linux-musl-gcc CARGO_TARGET_MIPSEL_UNKNOWN_LINUX_MUSL_LINKER=/home/runner/work/tunet-rust/tunet-rust/mipsel-linux-musl-cross/bin/mipsel-linux-musl-gcc cargo build --target mipsel-unknown-linux-musl --release
+      run: CC_mipsel_unknown_linux_musl=mipsel-linux-musl-gcc CARGO_TARGET_MIPSEL_UNKNOWN_LINUX_MUSL_LINKER=mipsel-linux-musl-gcc cargo build --target mipsel-unknown-linux-musl --release
     - name: Upload Built tunet
       uses: actions/upload-artifact@v3
       with:
