@@ -22,8 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: musl Toolchain
-      run: sudo apt update && sudo apt install -y musl && curl -O https://musl.cc/mipsel-linux-musl-cross.tgz && sudo tar xzf mipsel-linux-musl-cross.tgz --directory=/usr/
-    
+      run: sudo apt update && sudo apt install -y musl && curl -O https://musl.cc/mipsel-linux-musl-cross.tgz && tar xzf mipsel-linux-musl-cross.tgz && sudo cp mipsel-linux-musl-cross/bin/* /usr/bin/    
     - name: Rust Toolchain
       run: rustup target add mipsel-unknown-linux-musl
     
