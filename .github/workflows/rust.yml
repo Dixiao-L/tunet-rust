@@ -31,7 +31,7 @@ jobs:
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
     
     - name: Build
-      run: PATH=/home/runner/work/tunet-rust/tunet-rust/openwrt-sdk-21.02.2-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64/staging_dir/toolchain-mipsel_24kc_gcc-8.4.0_musl/bin:$PATH CC_mipsel_unknown_linux_musl=mipsel-openwrt-linux-gcc CARGO_TARGET_MIPSEL_UNKNOWN_LINUX_MUSL_LINKER=mipsel-openwrt-linux-gcc cargo build --target mipsel-unknown-linux-musl --exclude keyring --package tunet --release
+      run: PATH=/home/runner/work/tunet-rust/tunet-rust/openwrt-sdk-21.02.2-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64/staging_dir/toolchain-mipsel_24kc_gcc-8.4.0_musl/bin:$PATH CC_mipsel_unknown_linux_musl=mipsel-openwrt-linux-gcc CARGO_TARGET_MIPSEL_UNKNOWN_LINUX_MUSL_LINKER=mipsel-openwrt-linux-gcc cargo build --target mipsel-unknown-linux-musl --package tunet --release
     
     - name: Upload Built tunet
       uses: actions/upload-artifact@v3
