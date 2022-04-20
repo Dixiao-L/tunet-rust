@@ -37,4 +37,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: tunet
-        path: target/mipsel-unknown-linux-musl/release/
+        path: target/mipsel-unknown-linux-musl/release/tunet
