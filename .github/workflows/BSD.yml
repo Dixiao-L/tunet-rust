@@ -19,7 +19,9 @@ jobs:
     - name: Build
       uses: vmactions/freebsd-vm@v0
       with:
-        run: curl https://sh.rustup.rs -sSf | sh && cargo build --release
+        prepare: |
+          pkg install -y curl && curl https://sh.rustup.rs -sSf | sh
+        run: cargo build --release
     - name: Upload Built tunet
       uses: actions/upload-artifact@v3
       with:
