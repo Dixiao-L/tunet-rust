@@ -20,8 +20,9 @@ jobs:
       uses: vmactions/freebsd-vm@v0
       with:
         run: cargo build --release
-        uses: actions/upload-artifact@v3
-        with:
-          name: tunet_bsd
-          path: target/release/tunet
+    - name: Upload Built tunet
+      uses: actions/upload-artifact@v3
+      with:
+        name: tunet_x64
+        path: target/release/tunet
         
