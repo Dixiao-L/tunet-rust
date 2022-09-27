@@ -19,6 +19,7 @@ jobs:
     - name: Build
       uses: vmactions/freebsd-vm@v0
       with:
+        sync: sshfs
         prepare: |
           pkg install -y curl && curl https://sh.rustup.rs -sSf | sh -s -- -y
         run: setenv PATH $PATH\:$HOME/.cargo/bin && cargo build --release
