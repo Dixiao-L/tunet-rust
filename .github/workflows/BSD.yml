@@ -1,0 +1,27 @@
+name: BSD
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: macos-12
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      uses: vmactions/freebsd-vm@v0
+      with:
+        run: cargo build --release
+        uses: actions/upload-artifact@v3
+        with:
+          name: tunet_bsd
+          path: target/release/tunet
+        
