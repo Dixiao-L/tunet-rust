@@ -22,5 +22,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: tunet_x64
-        path: target/
+        path: target/release/tunet
         
