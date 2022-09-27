@@ -20,7 +20,7 @@ jobs:
       uses: vmactions/freebsd-vm@v0
       with:
         prepare: |
-          pkg install -y curl && curl https://sh.rustup.rs -sSf | sh -s -- -y
+          pkg install -y curl && curl https://sh.rustup.rs -sSf | sh -s -- -y && source "$HOME/.cargo/env"
         run: cargo build --release
     - name: Upload Built tunet
       uses: actions/upload-artifact@v3
