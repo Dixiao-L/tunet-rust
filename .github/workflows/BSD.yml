@@ -21,7 +21,9 @@ jobs:
       with:
         prepare: |
           pkg install -y curl && curl https://sh.rustup.rs -sSf | sh -s -- -y
-        run: cd $HOME/.cargo/bin && cargo build --release
+        run: cargo build --release
+      env:
+        PATH: $PATH:$HOME/.cargo/bin
     - name: Upload Built tunet
       uses: actions/upload-artifact@v3
       with:
